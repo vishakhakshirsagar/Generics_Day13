@@ -1,8 +1,18 @@
 package Day13Assignmnet;
 
-public class Generics {
+public class Generics<T extends Comparable<T>> {
         //compareTo method for Checking Maximum from 3 Integer Object
-        public <T extends Comparable<T>> T compareTo(T a, T b, T c) {
+        T a, b, c;
+
+        //Generic Constructor for Handling Different Type Object
+        Generics(T a, T b, T c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+
+        //compareTo method for Checking Maximum from 3 Integer Object
+        public T compareTo() {
             if (a.compareTo(b) > 0) {
                 if (a.compareTo(c) > 0) {
                     return a;
@@ -20,15 +30,18 @@ public class Generics {
 
         public static void main(String[] args) {
 
-            System.out.println("Welcome to Java Core - Generics Test Maximum.");
+            System.out.println("Welcome to Java Core - Generics Test Maximum Developed.");
             //Creating Generic Integer Object for Integer Comparison
-            Generics integerComparison = new Generics();
-            System.out.println("Maximum from 3 Integer Object : " + integerComparison.compareTo(90, 120, 190));
+            Generics<Integer> integerComparison = new Generics<>(90, 120, 190);
+            System.out.println("Maximum from 3 Integer Object : " + integerComparison.compareTo());
             //Creating Generic Float Object for Float Comparison
-            Generics floatComparison = new Generics();
-            System.out.println("Maximum from 3 Float Object : " + floatComparison.compareTo(90.0F, 120.0F, 190.0F));
+            Generics<Float> floatComparison = new Generics(90.0F, 120.0F, 190.0F);
+            System.out.println("Maximum from 3 Float Object : " + floatComparison.compareTo());
             //Creating Generic String Object for String Comparison
-            Generics stringComparison = new Generics();
-            System.out.println("Maximum from 3 String Object : " + stringComparison.compareTo("Apple", "Peach", "Banana"));
+            Generics<String> stringComparison = new Generics("Apple", "Peach", "Banana");
+            System.out.println("Maximum from 3 String Object : " + stringComparison.compareTo());
         }
-    }
+
+        {
+
+        }
